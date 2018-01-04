@@ -10,7 +10,11 @@ import java.util.Random;
 public class Hack {
 
 
-    static final String ADB_PATH = "/Users/chenliang/Library/Android/sdk/platform-tools/adb";
+    //    static final String ADB_PATH = "/Users/chenliang/Library/Android/sdk/platform-tools/adb";
+
+    // E:\work\Users\Administrator\AppData\Local\Android\Sdk\platform-tools
+    static final String ADB_PATH = "E:\\work\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\platform-tools\\adb";
+
 
     /**
      * 弹跳系数，如果是720分辨率，请修改为2.05来试试。
