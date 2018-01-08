@@ -33,7 +33,7 @@ public class Hack {
         WhitePointFinder whitePointFinder = new WhitePointFinder();
         Random random=new Random();
         double jumpRatio = 0;
-        for (int i = 0; i < 2048; i++) {
+        for (int i = 0; i < 120; i++) {
             try {
                 File file = new File(srcDir, i + ".png");
                 if (file.exists()) {
@@ -88,7 +88,7 @@ public class Hack {
                 break;
             }
             try {
-                Thread.sleep(4_000 );
+                Thread.sleep(random.nextInt(2_000) + 2_000); // 随机等待 2~3 秒
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
