@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * HackWangZhe ÍõÕßÈÙÒ«Ë¢½ğ±Ò
+ * HackWangZhe ç‹è€…è£è€€åˆ·é‡‘å¸
  *
  * @author Tong Xuefang
  * @date 2018/1/8 15:13
@@ -15,43 +15,46 @@ public class HackWangZhe {
     static final String ADB_PATH = "E:\\work\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\platform-tools\\adb";
 
     public static void main(String... strings) {
-
+        String scenario;
         for (int i = 0; i < 100; i++) {
             try {
                 printLog("============start========== " + i);
 
                 if (i > 0) {
-                    printLog("tz ");
-                    Runtime.getRuntime().exec(ADB_PATH + " shell input tap 1560 965 "); // ÌôÕ½
+                    printLog("æŒ‘æˆ˜ ");
+                    Runtime.getRuntime().exec(ADB_PATH + " shell input tap 1595 990 "); // æŒ‘æˆ˜
+
+                    Thread.sleep(5_000);
                 } else {
-                    // TODO µÚÒ»´ÎĞèÒªÏÈµã»÷¡¾ÏÂÒ»²½¡¿£¬Í£ÁôÔÚ´Ë»­Ãæ£¬Æô¶¯³ÌĞò
+                    // TODO ç¬¬ä¸€æ¬¡éœ€è¦å…ˆç‚¹å‡»ã€ä¸‹ä¸€æ­¥ã€‘ï¼Œåœç•™åœ¨æ­¤ç”»é¢ï¼Œå¯åŠ¨ç¨‹åº
                 }
+                printLog("é—¯å…³ ");
+                Runtime.getRuntime().exec(ADB_PATH + " shell input tap 1470 915 "); // é—¯å…³
+
+                scenario = "é—¯å…³ç‚¹å‡»åï¼Œloadæ—¶é—´è¿‡é•¿ã€‚å®¹é”™";
+                Thread.sleep(12_000); // é—¯å…³ç‚¹å‡»åï¼Œloadæ—¶é—´ç•¥é•¿ï¼Œå¤šè·³è¿‡å‡ æ¬¡ï¼Œå®¹é”™
+                tiaoGuo(scenario, 5); // è·³è¿‡
+
+                Thread.sleep(1_000);
+                auto(); // TODO è‡ªåŠ¨ ====== ä»è¿™é‡Œå¼€å§‹å¤§æ¦‚ï¼š 10s ç™½èµ·å‡ºç°ï¼Œ 60s æ‰é¹Šå‡ºç°
+
+                Thread.sleep(1_000);
+                tiaoGuo("è‡ªåŠ¨ä¹‹åçš„è·³è¿‡", 1); // è·³è¿‡ï¼ˆè‡ªåŠ¨ä¹‹åçš„ç”»é¢ï¼‰ æœ‰æ—¶æœ‰ï¼Œæœ‰æ—¶æ²¡æœ‰ï¼Œå¤šç‚¹ä¸€ä¸‹è·³è¿‡æ— å¦¨
+
+                Thread.sleep(8_000); // è‡ªåŠ¨ç‚¹å‡»åï¼Œ10s ç™½èµ·å‡ºç°ï¼Œ12ç§’å·¦å³è·³è¿‡æŒ‰é’®å‡ºç°
+                scenario = "ç™½èµ·å‡ºç°çš„è·³è¿‡ï¼Œå®¹é”™";
+                tiaoGuo(scenario, 5); // è·³è¿‡
+
+                // è‡ªåŠ¨å¼€å§‹è€—æ—¶ï¼š1+8+5 = 13s  62-13 = 49s
+                Thread.sleep(46_000); // è‡ªåŠ¨ç‚¹å‡»åï¼Œ62å·¦å³ bossæ‰é¹Šç¬¬ä¸€æ¬¡å‡ºç°ï¼Œæ‰é¹Šä¸¤æ¬¡å‡ºç°é—´éš”å¤§æ¦‚5ç§’
+                scenario = "æ‰é¹Šä¸¤æ¬¡å‡ºç°çš„è·³è¿‡ï¼Œå®¹é”™";
+                tiaoGuo(scenario, 10); // è·³è¿‡
 
                 Thread.sleep(3_000);
-                printLog("cg ");
-                Runtime.getRuntime().exec(ADB_PATH + " shell input tap 1465 905 "); // ´³¹Ø
+                printLog("ç‚¹å‡»ä»»æ„ä½ç½® "); // æ‰é¹Šç¬¬äºŒæ¬¡å‡ºç°è·³è¿‡åï¼Œç­‰5ç§’ï¼Œç»“æŸç•Œé¢å‡ºç°
+                Runtime.getRuntime().exec(ADB_PATH + " shell input tap 800 800 "); // ç‚¹å‡»ä»»æ„ä½ç½®ï¼ˆä¸€ä¸ªå‘¨æœŸç»“æŸï¼Œè·å¾—é‡‘å¸å±å¹•ï¼‰
 
-                Thread.sleep(13_000); // loadÊ±¼äÂÔ³¤
-                tiaoGuo(); // Ìø¹ı£¨×Ô¶¯Ö®Ç°µÄ»­Ãæ£©
-
-                Thread.sleep(2_000);
-                auto(); // TODO ×Ô¶¯£¨´³¹Ø¿ªÊ¼£©
-
-                // TODO ÓĞÊ±ÓĞ£¬ÓĞÊ±Ã»ÓĞ
-//                Thread.sleep(1_000);
-//                tiaoGuo(); // Ìø¹ı£¨×Ô¶¯Ö®ºóµÄ»­Ãæ£©
-
-                Thread.sleep(11_000); // µÈ´ı°×Æğ³öÏÖ£¬µã»÷Ìø¹ı
-                tiaoGuo(); // Ìø¹ı£¨×Ô¶¯Ö®ºóµÄ»­Ãæ£©
-
-                Thread.sleep(63_000); // µÈ´ıÕû¸ö´³¹ØÈÎÎñÍê³É
-                tiaoGuo(); // Ìø¹ı
-
-                Thread.sleep(2_000);
-
-                printLog("dianji pinmu ");
-                Runtime.getRuntime().exec(ADB_PATH + " shell input tap 1560 965 "); // µã»÷ÈÎÒâÎ»ÖÃ£¨Ò»¸öÖÜÆÚ½áÊø£¬»ñµÃ½ğ±ÒÆÁÄ»£©
-                Thread.sleep(5_000);
+                Thread.sleep(2_000); // ç­‰å¾…å†æ¬¡æŒ‘æˆ˜é¡µé¢å‡ºç°
 
                 printLog("============end========== " + i);
 
@@ -63,26 +66,31 @@ public class HackWangZhe {
     }
 
     private static void auto() throws IOException {
-        printLog("auto ");
-        Runtime.getRuntime().exec(ADB_PATH + " shell input tap 1795 37 "); // ×Ô¶¯£¨´³¹Ø¿ªÊ¼£©
+        printLog("è‡ªåŠ¨ ");
+        Runtime.getRuntime().exec(ADB_PATH + " shell input tap 1800 35 "); // è‡ªåŠ¨ï¼ˆé—¯å…³å¼€å§‹ï¼‰
     }
 
-    private static void tiaoGuo() throws IOException {
-        printLog("tiaoGuo ");
-        Runtime.getRuntime().exec(ADB_PATH + " shell input tap 1795 37 "); // Ìø¹ı
+    private static void tiaoGuo(String scenario, int times) throws IOException, InterruptedException {
+        for (int j = 0; j < times; j++) {
+            printLog("è·³è¿‡ " + scenario + j);
+            Runtime.getRuntime().exec(ADB_PATH + " shell input tap 1705 85 "); // è·³è¿‡
+
+            // æ¯ä¸¤æ¬¡è·³è¿‡é—´éš”1ç§’
+            Thread.sleep(1_000);
+        }
     }
 
     /**
-     * »ñÈ¡ÏÖÔÚÊ±¼äµÄ×Ö·û´®
+     * è·å–ç°åœ¨æ—¶é—´çš„å­—ç¬¦ä¸²
      * @return
      */
     private static String getNowStringTime() {
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSS");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return df.format(new Date());
     }
 
     /**
-     * ´òÓ¡log
+     * æ‰“å°log
      * @param var
      */
     private static void printLog(String var) {
