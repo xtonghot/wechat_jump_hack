@@ -20,20 +20,21 @@ public class HackWangZhe {
             try {
                 printLog("============start========== " + i);
 
+                int cgTiaoguoWait = 5;
                 if (i > 0) {
-                    printLog("挑战 ");
-                    Runtime.getRuntime().exec(ADB_PATH + " shell input tap 1595 990 "); // 挑战
+                    printLog("再次挑战 ");
+                    Runtime.getRuntime().exec(ADB_PATH + " shell input tap 1595 990 "); // 再次挑战
 
                     Thread.sleep(5_000);
                 } else {
                     // TODO 第一次需要先点击【下一步】，停留在此画面，启动程序
+                    cgTiaoguoWait = 8; // 第一次闯关，加载时间长一些，增加2秒
                 }
-                printLog("闯关 ");
-                Runtime.getRuntime().exec(ADB_PATH + " shell input tap 1470 915 "); // 闯关
 
+                chuangGuan();
                 scenario = "闯关点击后，load时间过长。容错";
                 Thread.sleep(12_000); // 闯关点击后，load时间略长，多跳过几次，容错
-                tiaoGuo(scenario, 5); // 跳过
+                tiaoGuo(scenario, cgTiaoguoWait); // 跳过
 
                 Thread.sleep(1_000);
                 auto(); // TODO 自动 ====== 从这里开始大概： 10s 白起出现， 60s 扁鹊出现
@@ -63,6 +64,11 @@ public class HackWangZhe {
                 continue;
             }
         }
+    }
+
+    private static void chuangGuan() throws IOException {
+        printLog("闯关 ");
+        Runtime.getRuntime().exec(ADB_PATH + " shell input tap 1470 915 "); // 闯关
     }
 
     private static void auto() throws IOException {
