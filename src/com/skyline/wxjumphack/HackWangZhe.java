@@ -20,23 +20,22 @@ public class HackWangZhe {
             try {
                 printLog("============start========== " + i);
 
-                int cgTiaoguoWait = 5;
+                int cgTiaoguoWait = 7;
                 if (i > 0) {
                     printLog("再次挑战 ");
-                    Runtime.getRuntime().exec(ADB_PATH + " shell input tap 1595 990 "); // 再次挑战
+                    Runtime.getRuntime().exec(ADB_PATH + " shell input tap 1930 990 "); // 再次挑战
 
                     Thread.sleep(5_000);
                 } else {
                     // TODO 第一次需要先点击【下一步】，停留在此画面，启动程序
-                    cgTiaoguoWait = 8; // 第一次闯关，加载时间长一些，增加2秒
+                    cgTiaoguoWait = 10; // 第一次闯关，加载时间长一些，增加2秒
                 }
 
                 chuangGuan();
                 scenario = "闯关点击后，load时间过长。容错";
-                Thread.sleep(12_000); // 闯关点击后，load时间略长，多跳过几次，容错
+                Thread.sleep(10_000); // 闯关点击后，load时间略长，多跳过几次，容错
                 tiaoGuo(scenario, cgTiaoguoWait); // 跳过
 
-                Thread.sleep(1_000);
                 auto(); // TODO 自动 ====== 从这里开始大概： 10s 白起出现， 60s 扁鹊出现
 
                 Thread.sleep(1_000);
@@ -51,7 +50,7 @@ public class HackWangZhe {
                 scenario = "扁鹊两次出现的跳过，容错";
                 tiaoGuo(scenario, 10); // 跳过
 
-                Thread.sleep(3_000);
+                Thread.sleep(5_000);
                 printLog("点击任意位置 "); // 扁鹊第二次出现跳过后，等5秒，结束界面出现
                 Runtime.getRuntime().exec(ADB_PATH + " shell input tap 800 800 "); // 点击任意位置（一个周期结束，获得金币屏幕）
 
@@ -68,18 +67,18 @@ public class HackWangZhe {
 
     private static void chuangGuan() throws IOException {
         printLog("闯关 ");
-        Runtime.getRuntime().exec(ADB_PATH + " shell input tap 1470 915 "); // 闯关
+        Runtime.getRuntime().exec(ADB_PATH + " shell input tap 1465 915 "); // 闯关
     }
 
     private static void auto() throws IOException {
         printLog("自动 ");
-        Runtime.getRuntime().exec(ADB_PATH + " shell input tap 1800 35 "); // 自动（闯关开始）
+        Runtime.getRuntime().exec(ADB_PATH + " shell input tap 2045 35 "); // 自动（闯关开始）
     }
 
     private static void tiaoGuo(String scenario, int times) throws IOException, InterruptedException {
         for (int j = 0; j < times; j++) {
             printLog("跳过 " + scenario + j);
-            Runtime.getRuntime().exec(ADB_PATH + " shell input tap 1705 85 "); // 跳过
+            Runtime.getRuntime().exec(ADB_PATH + " shell input tap 1945 85 "); // 跳过
 
             // 每两次跳过间隔1秒
             Thread.sleep(1_000);
